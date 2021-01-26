@@ -40,7 +40,4 @@ def lambda_handler(event, context):
             "body": '<html><head><style>table, th, td {  border: 1px solid black;}</style></head><img src="https://static.thenounproject.com/png/2118808-200.png"/><br><b>Usage:</b> https://7fx0vb51sg.execute-api.us-east-1.amazonaws.com/default/tests3hostedsite?q=songName</html>'
         }
     return resp 
-    
-
-
-    
+   
