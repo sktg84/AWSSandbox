@@ -1,6 +1,6 @@
 # [CoWin-Vaccine-Notifier]()
 Automated Lambda Script to retrieve vaccine slots availability...
-
+URL: https://313h03jm0c.execute-api.ap-south-1.amazonaws.com/default/CoWinIndiaVPC
 ## Step 1:
   Pick a state from the URL: 
   
