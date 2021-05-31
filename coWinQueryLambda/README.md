@@ -47,8 +47,7 @@ ttl: 24
     
   
  Response for the above call would be like the one below. Use the district name as in "district_name": like <b>Chennai</b>
-    
-   ``` 
+```    
    {
     districts: [
     {
@@ -74,4 +73,7 @@ ttl: 24
     ],
     ttl: 24
     }
-    ```
+```
+
+This project is licensed under the MIT License
+<h3 align="center">Show some &nbsp;❤️&nbsp; by starring some of the repositories!</h3>
