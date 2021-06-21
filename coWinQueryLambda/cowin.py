@@ -102,7 +102,7 @@ def lambda_handler(event, context):
                                     blkName = ""
                                     feeType = ""
                                     avail = ""
-                                    feees = "Free"
+                                    fees = "Free"
                                     vaccine = ""
                                     if (session["min_age_limit"] <= age and session["available_capacity"] > 0) :
                                         if (pincodeMode == False):
