@@ -104,6 +104,8 @@ def lambda_handler(event, context):
                                     avail = ""
                                     fees = "Free"
                                     vaccine = ""
+                                    dose=""
+                                    
                                     if (session["min_age_limit"] <= age and session["available_capacity"] > 0) :
                                         if (pincodeMode == False):
                                             print ('District:' + districtMap[pincode])
@@ -121,6 +123,7 @@ def lambda_handler(event, context):
                                         feeType = center["fee_type"]
                                         print("\t Availablity : ", session["available_capacity"])
                                         avail = session["available_capacity"]
+                                        dose=" ("+str(session["available_capacity_dose1"])+"/"+str(session["available_capacity_dose2"])+")"
                                         if(session["vaccine"] != ''):
                                             print("\t Vaccine type: ", session["vaccine"])
                                             vaccine = session["vaccine"]
@@ -133,7 +136,7 @@ def lambda_handler(event, context):
                                                                     
                                                 # [session["vaccine"]])
                                         print("\n")
-                                        composedRows = composedRows + "<tr><td>" + str(dist) + "</td><td>" + str(avDate) + "</td><td>" + str(name) + "</td><td>" + str(blkName) + "</td><td>" + str(feeType) + "</td><td>" + str(avail) + "</td><td>" + str(vaccine) + "</td><td>" + str(fees) + "</td></tr>"
+                                        composedRows = composedRows + "<tr><td>" + str(dist) + "</td><td>" + str(avDate) + "</td><td>" + str(name) + "</td><td>" + str(blkName) + "</td><td>" + str(feeType) + "</td><td>" + str(avail)+ dose + "</td><td>" + str(vaccine) + "</td><td>" + str(fees) + "</td></tr>"
                                         counter = counter + 1
                 else:
                     print("No Response!")
@@ -151,7 +154,7 @@ def lambda_handler(event, context):
                 "Access-Control-Allow-Origin": "*",
                 'Content-Type': 'text/html',  # added for making a table
             },
-            "body": '<html><head><style>' + styleType + '</style></head><h3>CoWin Vaccine Search for today & tomorrow as on: ' + date_time + ' GMT/UTC</h3><br><br><table class="styled-table"><th>District</th><th>Date</th><th>Hospital Name</th><th>Branch</th><th>Fee Type</th><th>Available Slots</th><th>Vaccine</th><th>Fees</th>' + composedRows + "</table></html>"
+            "body": '<html><head><style>' + styleType + '</style></head><h3>CoWin Vaccine Search for today & tomorrow as on: ' + date_time + ' GMT/UTC</h3><br><br><table class="styled-table"><th>District</th><th>Date</th><th>Hospital Name</th><th>Branch</th><th>Fee Type</th><th>Available Slots (Dose 1/ Dose 2)</th><th>Vaccine</th><th>Fees</th>' + composedRows + "</table></html>"
         }
     else:
         resp = {
